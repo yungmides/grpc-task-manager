@@ -63,13 +63,12 @@ export class UserController {
     @Payload() req: UpdateRequest,
     @GRPCUser() jwtUser,
   ): Promise<UpdateResponse> {
+    if (req.user?.id !== jwtUser.id)
+      throw new RpcException({
+        code: RpcStatus.PERMISSION_DENIED,
+        message: 'you do not have acces to this resource',
+      });
     try {
-      // if (req.user?.id !== jwtUser.id)
-      //   throw new RpcException({
-      //     code: RpcStatus.PERMISSION_DENIED,
-      //     message: 'you do not have acces to this resource',
-      //   });
-
       const dto: UpdateUserDto = await this.validateDto(
         req.user,
         UpdateUserDto,

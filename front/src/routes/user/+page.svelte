@@ -13,6 +13,7 @@
 	<title>User Update</title>
 </svelte:head>
 
+<pre>{JSON.stringify(user)}</pre>
 <div class="flex w-full flex-wrap items-center justify-center p-4">
 	<form
 		action="/user?/update"

@@ -4,7 +4,7 @@ import type { RequestHandler } from './$types';
 export const GET: RequestHandler = async ({ cookies, locals }) => {
 	const res = await locals.userClient.find(
 		{
-			email: 'moha@med.com'
+			email: 'test@ratio.com'
 		} as any,
 		{
 			meta: {

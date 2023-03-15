@@ -91,6 +91,7 @@ export class AppController {
             jwt: this.jwtService.sign({ user }),
             refreshToken: rt.refreshToken,
             status: LoginResponse_STATUS.OK,
+            user
           };
         case CheckPasswordResponse_STATUS.WRONG_PASSWORD:
           throw new RpcException({

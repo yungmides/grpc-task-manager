@@ -4,11 +4,13 @@
 	import NewTask from './task/NewTask.svelte';
 	import FaUserSecret from 'svelte-icons/fa/FaUserSecret.svelte';
 	import FaUserTie from 'svelte-icons/fa/FaUserTie.svelte';
+	import FaUserEdit from 'svelte-icons/fa/FaUserEdit.svelte';
 	import { muteToast, username } from '$src/stores/user';
 	import { sendUsage } from '../service/usage';
 	import { EventType } from '../stubs/task/v1beta/task';
 	import Login from './auth/Login.svelte';
 	import Logout from './auth/Logout.svelte';
+	import UpdateUserForm from './user/UpdateUserForm.svelte';
 
 	export let headerHeight;
 
@@ -22,6 +24,10 @@
 	const handleNewTask = () => {
 		sendUsage(EventType.CREATE, '');
 		modal.open(NewTask as any);
+	};
+
+	const handleUpdateUser = () => {
+		modal.open(UpdateUserForm as any);
 	};
 
 	const handleSession = () => {
@@ -152,6 +158,7 @@
 					<FaUserSecret />
 				{/if}
 			</button>
+			<button class="btn btn-primary btn-square" on:click={handleUpdateUser}><FaUserEdit /></button>
 			<button class="btn btn-primary btn-square" on:click={handleNewTask}>+</button>
 		</div>
 	</div>

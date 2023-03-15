@@ -1,6 +1,6 @@
 import { Module, RequestMethod } from '@nestjs/common';
 import { AppService } from './app.service';
-import { PrismaService } from './primsa.service';
+import { PrismaService } from './prisma.service';
 import { UserModule } from './user/user.module';
 import { GrpcReflectionModule } from 'nestjs-grpc-reflection';
 import grpcOption from './grpcOption';
